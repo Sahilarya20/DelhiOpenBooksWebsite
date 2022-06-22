@@ -427,8 +427,8 @@ padding: 30px 65px;
   border-radius: 15px;
    background-color: #ebebeb;
 
-  width: 400px;
-  height: 400px;
+  width: 315px;
+  height: 350px;
   cursor: pointer;
   transition: .3s ease-in-out;
 }
@@ -529,7 +529,7 @@ padding: 6px;
 }
 .quantity-desc span{
   font-size: 16px;
-  padding: 6px 12px;
+  padding: 4px 8px;
   cursor: pointer;
 }
 .quantity-desc .minus{
@@ -551,8 +551,7 @@ padding: 6px;
 .maylike-products-wrapper h2{
   text-align: center;
   margin: 50px;
-  color: #324d67;
-
+  color: #274c6f;
   font-size: 28px;
 }
 .maylike-products-container{
