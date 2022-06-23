@@ -19,9 +19,15 @@ export const StateContext = ({ children }) => {
 
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id);
+    // if(setTotalQuantities()>10){
+    //     setTotalQuantities(10);
+    // }
     
     setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+    // if(setTotalQuantities()>10){
+    //     setTotalQuantities(10);
+    // }
     
     if(checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
@@ -46,6 +52,7 @@ export const StateContext = ({ children }) => {
             const newCartItems = cartItems.filter((item) => item._id !== product._id)
             setTotalPrice((prevTotalPrice) => prevTotalPrice -foundProduct.price * foundProduct.quantity);
             setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
+            
             setCartItems(newCartItems);
         }
 
@@ -58,12 +65,16 @@ export const StateContext = ({ children }) => {
         setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity +1} ]);
         setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
         
+        
         if(foundProduct.quantity >9)
             {alert("For Bulk Orders Contact to Owner and get extra discount");
-            setTotalQuantities(prevTotalQuantities => prevTotalQuantities )
+            // setTotalQuantities(prevTotalQuantities => prevTotalQuantities )
+            // prevTotalQuantities=>0;
+            
         }
         else 
-        setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
+       
+        setTotalQuantities(prevTotalQuantities => prevTotalQuantities +1)
         
       } else if(value === 'dec') {
         if (foundProduct.quantity > 1) {

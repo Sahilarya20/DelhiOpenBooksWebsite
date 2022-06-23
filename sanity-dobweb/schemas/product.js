@@ -32,6 +32,13 @@ export default {
         type: 'number',
       },
       { 
+        name: 'originalprice',
+        title: 'Original Price',
+        type: 'number',
+      }
+      ,
+
+      { 
         name: 'details',
         title: 'Details',
         type: 'string',
@@ -41,5 +48,39 @@ export default {
         title: 'Author',
         type: 'string',
       }
+      ,
+      {
+        name: 'language',
+        title: 'Language',
+        type: 'string',
+      },
+      {
+        name: 'publisher',
+        title: 'Publisher',
+        type: 'string',
+      },    
+      {
+        name: 'isbn',
+        title: 'ISBN',
+        type: 'string',
+      },
+      {
+        name: 'pages',
+        title: 'Pages',
+        type: 'number',
+      },
+      
+      {
+        name: 'binding',
+        title: 'Binding',
+        type: 'string',
+      },
+      
+      {
+        name: 'dimension',
+        title: 'Dimension',
+        type: 'string',
+      }
+      
     ]
   }

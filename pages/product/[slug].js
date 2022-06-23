@@ -5,10 +5,21 @@ import {Product} from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({product,products}) => {
-    const { image, name, details, price ,author} = product;
+    const { image, name, details, price ,author,language,publisher,pages,isbn,binding,dimension ,originalprice} = product;
 
     const [index,setIndex]=useState(0);
     const { decQty, incQty, qty,onAdd} = useStateContext();
+
+
+    let discountedPrice={price};
+    let OriginalPrice={originalprice}
+    const discount=(discountedPrice,OriginalPrice)=>{
+      return ((OriginalPrice-discountedPrice)/OriginalPrice)*100;
+    }
+    const discountPri=discount(OriginalPrice,discountedPrice);
+    // const s=parseInt(discountPri,10);
+
+    // console.log(discountPri)
 
   return (
     <div >
@@ -46,10 +57,13 @@ const ProductDetails = ({product,products}) => {
                         </div>
                         <p>(20)</p>
                     </div>
-                    <h4>Details:</h4>
-                    <p>{details}</p>
-                    <span><b>Author: </b>{author}</span>
-                    <p className='price'> &#x20B9; {price}</p>
+                    {/* <h4>Details:</h4>
+                    <p>{details}</p> */}
+                    <span><b>Author: </b>{author}</span><br></br>
+                    <p className='price'> &#x20B9; {price} </p> 
+                    <span className='discount'> &nbsp; <del> &#x20B9;398 </del></span>
+                    {/* <span> &nbsp; {discountPri}</span>s */}
+                    
                     <div className="quantity">
                     <h3>Quantity:</h3>
             <p className="quantity-desc">
@@ -59,11 +73,39 @@ const ProductDetails = ({product,products}) => {
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-            <button type="button" className="buy-now" onClick="">Buy Now</button>
+          <button type="button" className="buy-now" onClick="">Buy Now</button><br></br>
+          <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
+          
           </div>
+          
         </div>
+        {/* <div className='right-desc'>
+                   <center> <span className='title'>About the Book</span></center>
+                   <div className='details'>Details:
+                   <p>{details}</p>
+                   </div>
+            </div>  */}
       </div>
+    
+    <div className='highlights-container'>
+      <h4>Book Highlights:  </h4>
+      <div className='highlights-details'>
+        <p> &#x2022;Language:&nbsp; {language}</p>
+        <p> &#x2022;Publisher:&nbsp; {publisher}</p>
+        <p> &#x2022;ISBN:&nbsp; {isbn}</p>
+        <p> &#x2022;Pages:&nbsp; {pages}</p>
+        <p> &#x2022;Binding:&nbsp; {binding}</p>
+        <p> &#x2022;Author:&nbsp; {author}</p>
+        <p> &#x2022;Dimenson:&nbsp; {dimension}</p>
+
+      </div>
+      <div className='highlights-details2'>
+      <h4>Book details:  </h4>
+      <p>{details}</p>
+      </div>
+      
+    </div>
+
 
       <div className="maylike-products-wrapper">
           <h2>You may also like</h2>

@@ -12,7 +12,10 @@ const Navbar = () => {
       <p className='logo'>
         <Link href="/">Delhi Open Books
         </Link>
+        
       </p>
+      
+      
       <button type='button' className='cart-icon' onClick={()=>{
         setShowCart(true);
       }}>
