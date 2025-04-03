@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Link from 'next/link';
-// import { urlFor } from '../lib/client'
+import { urlFor } from '../lib/client'
 import { GrLocation } from 'react-icons/gr';
 
 const FooterBanner = ({footerBanner:{
